@@ -46,6 +46,7 @@ ul {
     color: #222;
     line-height: 1.7;
     padding-left: 25px;
+	position: static;
 }
 
 ul li {
@@ -114,18 +115,55 @@ td {
     background-color: #f4f4f4;
 }
 
+
 dl > dt {
     color: darkgreen;
 }
+
 
 a img {
 	border: 2px solid green;
 	padding: 5px;
 }
 
-h1 + p{
-	color: darkred; 
-    font-style: italic; 
+
+h1 + p {
+    color: darkred;
+    font-style: italic;
 }
 
 
+.image-container {
+    display: flex;                  
+    justify-content: center;        
+    align-items: center;            
+	float: right;
+}
+
+span {
+	color: purple;
+}
+
+
+a:link {
+    color: yellow;  
+}
+
+
+a:visited {
+    color: darkblue;
+}
+
+
+a:hover {
+    color: orange;  
+}
+
+
+a:active {
+    color: red;  
+}
+
+ol li:first-child {
+    font-weight: bold; 
+}
