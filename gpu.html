@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
+    <meta charset="UTF-8">
     <meta name="author" content="Большаков Кирило">
-	<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
     <title>Відеокарти</title>
-	 <script src="script.js"></script>
+    <script src="script.js"></script>
 </head>
 <body>
 
@@ -13,48 +14,72 @@
 
     <h2 id="gpu-types">Типи відеокарт</h2>
     <p><span>Відеокарти</span> поділяються на інтегровані та дискретні.</p>
-	
-	<table border="1">
-    <caption><b>Популярні відеокарти</b></caption>
-    <tr bgcolor="grey">
-        <th>Бюджетна відеокарта</th>
-        <th>Середня відеокарта</th>
-        <th>Топова відеокарта</th>
-    </tr>
-    <tr>
-        <td><img src="https://m.media-amazon.com/images/I/71AC5kElPGL._AC_UF1000,1000_QL80_.jpg" alt="GTX 1650" width="100"></td>
-        <td><img src="https://m.media-amazon.com/images/I/61+aEAi70wS.jpg" alt="RTX 3070" width="100"></td>
-        <td><img src="https://m.media-amazon.com/images/I/815d7TTP5UL.jpg" alt="RTX 4090" width="100"></td>
-    </tr>
-    <tr>
-        <td><b>Об’єм пам’яті:</b> 4GB GDDR6</td>
-        <td><b>Об’єм пам’яті:</b> 12GB GDDR6</td>
-        <td><b>Об’єм пам’яті:</b> 24GB GDDR6X</td>
-    </tr>
-    <tr>
-        <td><b>Розрядність шини:</b> 128-bit</td>
-        <td><b>Розрядність шини:</b> 192-bit</td>
-        <td><b>Розрядність шини:</b> 384-bit</td>
-    </tr>
-    <tr>
-        <td><b>Енергоспоживання:</b> 75W</td>
-        <td><b>Енергоспоживання:</b> 170W</td>
-        <td><b>Енергоспоживання:</b> 450W</td>
-    </tr>
-</table>
+    
+    <table border="1">
+        <caption><b>Популярні відеокарти</b></caption>
+        <tr bgcolor="grey">
+            <th>Бюджетна відеокарта</th>
+            <th>Середня відеокарта</th>
+            <th>Топова відеокарта</th>
+        </tr>
+        <tr>
+            <td><img src="https://m.media-amazon.com/images/I/71AC5kElPGL._AC_UF1000,1000_QL80_.jpg" alt="GTX 1650" width="100"></td>
+            <td><img src="https://m.media-amazon.com/images/I/61+aEAi70wS.jpg" alt="RTX 3070" width="100"></td>
+            <td><img src="https://m.media-amazon.com/images/I/815d7TTP5UL.jpg" alt="RTX 4090" width="100"></td>
+        </tr>
+        <tr>
+            <td><b>Об’єм пам’яті:</b> 4GB GDDR6</td>
+            <td><b>Об’єм пам’яті:</b> 12GB GDDR6</td>
+            <td><b>Об’єм пам’яті:</b> 24GB GDDR6X</td>
+        </tr>
+        <tr>
+            <td><b>Розрядність шини:</b> 128-bit</td>
+            <td><b>Розрядність шини:</b> 192-bit</td>
+            <td><b>Розрядність шини:</b> 384-bit</td>
+        </tr>
+        <tr>
+            <td><b>Енергоспоживання:</b> 75W</td>
+            <td><b>Енергоспоживання:</b> 170W</td>
+            <td><b>Енергоспоживання:</b> 450W</td>
+        </tr>
+    </table>
 
     <p><a href="ram.html#ram-speed">Дізнатися про швидкість оперативної пам'яті</a></p>
     <p><a href="index.html">⬅ Назад до каталогу</a></p>
 
-<script>      
+    <hr>
+    <h3>Обробка подій миші</h3>
+
+    <!-- 🟩 Обробник через атрибут -->
+    <button ondblclick="handleFromAttribute()">Подвійний клік — показати інтегровану GPU</button>
+
+    <!-- 🟦 Обробник через властивість -->
+    <button id="propertyButton">Подвійний клік — показати дискретну GPU</button>
+
+    <script>
+        // Зміна кольору тексту в усіх абзацах
         const paragraphs = document.querySelectorAll('p');      
         paragraphs.forEach(function(paragraph) {
             paragraph.style.color = 'green'; 
         });
+
+        // 🟩 Функція для інтегрованої GPU (через атрибут)
+        function handleFromAttribute() {
+    alert("Інтегрована відеокарта використовується в бюджетних системах.");
+}
+
+// 🟦 Функція для дискретної GPU (через властивість)
+document.getElementById("propertyButton").ondblclick = function() {
+    alert("Дискретна відеокарта забезпечує високу графічну продуктивність.");
+};
     </script>
 
 </body>
 </html>
+
+
+
+
 
 
 

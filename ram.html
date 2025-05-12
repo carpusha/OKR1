@@ -2,46 +2,40 @@
 <html lang="uk">
 <head>
     <meta name="author" content="Большаков Кирило">
-	<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
     <title>Оперативна пам'ять</title>
-	<style>
+    <style>
         p::before {
-            content: "⚡ ";  
+            content: "⚡ ";
         }
 
         p::after {
-            content: " 🔥";       
+            content: " 🔥";
         }
     </style>
 </head>
 <body>
 
-    <!-- Замінимо цей параграф за допомогою replaceWith -->
-    <p id="replace-target">Стара інформація про оперативну пам’ять, яка буде замінена.</p>
-	
-     <!-- Ось цей параграф ми змінюємо через innerHTML -->
+    <p id="replace-target">Оперативна пам'ять важлива річ в комп'ютері</p>
+
     <p id="ram-description">Оперативна пам’ять (RAM) – енергозалежний тип пам'яті, що використовується для зберігання даних у процесі роботи програм.</p>
 
     <h1 id="ram-speed">Швидкість оперативної пам'яті</h1>
 
-    <!-- Ось цей параграф ми змінюємо через outerHTML -->
     <p id="ram-speed-description">Чим вища швидкість оперативної пам'яті, тим швидше виконується доступ до даних.</p>
 
-    <!-- параграф для демонстрації nodeValue -->
     <p id="ram-performance">Швидкість і ефективність оперативної пам'яті важливі для максимізації потужності системи.</p>
 
-    <!-- параграф для демонстрації textContent -->
     <p id="ram-importance">Висока швидкість оперативної пам'яті дає можливість запускати та працювати з великими програмами і іграми без затримок.</p>
 
-<!-- Використання document.write -->
     <script>
         document.write('<p>Оперативна пам\'ять (RAM) є одним з найбільш важливих компонентів комп\'ютера, що впливає на швидкість роботи системи та ефективність виконання завдань.</p>');
     </script>
-	
-	 <!-- Місце для використання document.createElement -->
+
     <h2 id="new-content"></h2>
- 
-    <table border="1" width="100%" cellspacing="5" cellpadding="10">
+
+
+ <table border="1" width="100%" cellspacing="5" cellpadding="10">
         <caption><b>Порівняння оперативної пам’яті</b></caption>
         <tr bgcolor="grey" align="center">
             <th>Тип пам’яті</th>
@@ -69,7 +63,6 @@
             <td colspan="2">Швидша пам’ять із низькою затримкою</td>
         </tr>
 
-
         <tr align="center">
             <td rowspan="2"><b>DDR5</b></td>
             <td>5600</td>
@@ -80,62 +73,104 @@
             <td colspan="2">Вища частота та ефективніше використання енергії</td>
         </tr>
     </table>
-	
-	<p id="remove-me">Дякую за увагу!</p>
+
+
+    <!-- Кнопка для багатьох обробників -->
+    <button id="ramButton">Дізнатись про оперативну пам’ять</button>
+
+    <p id="remove-me">Дякую за увагу!</p>
+
+    <!-- Поведінкове меню -->
+    <div class="menu" id="behavior-menu">
+        <button data-behavior="info">ℹ️ Інформація</button>
+        <button data-behavior="recommend">✅ Рекомендація</button>
+        <button data-behavior="warn">⚠️ Попередження</button>
+    </div>
 
     <p><a href="cpu.html#types">Дізнатися про типи процесорів</a></p>
     <p><a href="index.html">⬅ Назад до каталогу</a></p>
 
-  <script>
-        // Використовуємо innerHTML
-        const ramDescription = document.getElementById('ram-description');
-        ramDescription.innerHTML = 'Оперативна пам’ять (RAM) – важливий компонент комп’ютера для ефективної роботи програм та зберігання даних.';  
-		
-		// Використовуємо outerHTML
-		 const ramSpeedDescription = document.getElementById('ram-speed-description');
-        ramSpeedDescription.outerHTML = '<p id="ram-speed-description">Оперативна пам’ять на високих швидкостях забезпечує швидку обробку даних, що є критичним для сучасних програм та ігор.</p>';
-		
-		// Використовуємо nodeValue
-		const ramPerformance = document.getElementById('ram-performance');
-        ramPerformance.firstChild.nodeValue = 'Швидкість і ефективність RAM є основою для надання високопродуктивного досвіду користувача при виконанні сучасних задач.';
+    <script>
+        // ✏️ DOM-операції
+        document.getElementById('ram-description').innerHTML = 'Оперативна пам’ять (RAM) – важливий компонент...';
+        document.getElementById('ram-speed-description').outerHTML = '<p id="ram-speed-description">Оперативна пам’ять на високих швидкостях...</p>';
+        document.getElementById('ram-performance').firstChild.nodeValue = 'Швидкість і ефективність RAM — основа...';
+        document.getElementById('ram-importance').textContent = 'Висока швидкість дозволяє працювати з новими програмами...';
 
-		// Використовуємо textContent
-		const ramImportance = document.getElementById('ram-importance');
-        ramImportance.textContent = 'Висока швидкість оперативної пам’яті дозволяє працювати з найновішими програмами, що потребують великих обсягів пам’яті та ресурсів.';
-		
-		  // Створення нового елемента параграфа
-        const newParagraph = document.createElement('p'); 
-        // Створення текстового вмісту для параграфа
-        const textNode = document.createTextNode('Оперативна пам\'ять дозволяє запускати ресурсоємні програми з мінімальними затримками, що покращує ефективність роботи системи.');
-        // Додаємо текст до параграфа
-        newParagraph.append(textNode); // Використовуємо append
-        // Знаходимо контейнер для нового елемента і додаємо параграф
+        const newParagraph = document.createElement('p');
+        newParagraph.append(document.createTextNode('RAM дозволяє запускати ресурсоємні програми...'));
         document.getElementById('new-content').append(newParagraph);
-		
-		  // Використовуємо node.prepend
+
         const newHeading = document.createElement('h3');
         newHeading.textContent = 'Нова інформація про пам’ять';
-        document.body.prepend(newHeading); 
-		
-		   // Використовуємо node.after
+        document.body.prepend(newHeading);
+
         const newTableHeading = document.createElement('h4');
         newTableHeading.textContent = 'Порівняння різних типів оперативної пам’яті';
         document.querySelector('table').after(newTableHeading);
-		
-		// Використовуємо replaceWith
+
         const oldPara = document.getElementById('replace-target');
         const replacement = document.createElement('p');
-        replacement.textContent = 'Оновлена інформація: оперативна пам’ять є ключовим фактором продуктивності системи, особливо у сучасних додатках та іграх.';
+        replacement.textContent = 'Оновлена інформація про RAM...';
         oldPara.replaceWith(replacement);
-		
-		// Використовуємо remove
-		const removable = document.getElementById('remove-me');
-        removable.remove();
-		
+
+        document.getElementById('remove-me').remove();
+
+        // 📌 addEventListener з кількома обробниками
+        function firstHandler() {
+            alert("RAM — це пам’ять для тимчасового зберігання даних програм.");
+        }
+
+        function secondHandler() {
+            alert("Більше RAM = краща швидкість і багатозадачність.");
+        }
+
+        const ramButton = document.getElementById('ramButton');
+        ramButton.addEventListener('click', firstHandler);
+        ramButton.addEventListener('click', secondHandler);
+
+        // 📌 Об'єкт-обробник з handleEvent
+        const ramObjectHandler = {
+            handleEvent(event) {
+                alert("Обробник через об'єкт. Спрацював на: " + event.currentTarget.tagName);
+            }
+        };
+
+        ramButton.addEventListener('click', ramObjectHandler);
+
+        // 📌 Видалення об'єкта-обробника через removeEventListener
+        setTimeout(() => {
+            ramButton.removeEventListener('click', ramObjectHandler);
+            console.log("Об’єкт-обробник ramObjectHandler видалено.");
+        }, 5000);
+
+        // ✅ Поведінка через data-behavior
+        document.getElementById('behavior-menu').addEventListener('click', function(event) {
+            const behavior = event.target.dataset.behavior;
+
+            if (!behavior) return;
+
+            switch (behavior) {
+                case 'info':
+                    alert("Оперативна пам’ять потрібна для швидкого доступу до даних.");
+                    break;
+                case 'recommend':
+                    alert("Рекомендується обирати DDR4 або DDR5 для нових ПК.");
+                    break;
+                case 'warn':
+                    alert("Недостатня кількість RAM може спричинити гальмування системи.");
+                    break;
+            }
+        });
     </script>
 
 </body>
 </html>
+
+
+
+     
+
 
 
 
