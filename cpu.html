@@ -90,6 +90,9 @@
             <td>Середній</td>
         </tr>
     </table>
+	
+
+
 
     <p><a href="gpu.html#gpu-types">Дізнатися про відеокарти</a></p>
     <p><a href="index.html">⬅ Назад до каталогу</a></p>
@@ -99,6 +102,10 @@
     <button class="buttoncss" id="compareStringsBtn">Порівняти рядки</button>
 	<button class="buttoncss" id="changeBackgroundBtn">Змінити фон на 30 секунд</button>
 	<button class="buttoncss" id="redirectBtn">Перейти на іншу сторінку</button>
+	
+	<div id="draggable" style="width: 200px; padding: 10px; background-color: lightblue; cursor: grab; position: absolute; top: 600px; left: 50px;">
+    Перетягни мене мишею
+</div>
 	
     <script>
         function showDeveloperInfo(lastName, firstName, position) {
@@ -142,6 +149,32 @@
 		document.getElementById('redirectBtn').addEventListener('click', function() {
             location.href = "https://hotline.ua/ua/computer/processory/";  // Перенаправлення на сторінку
         });
+		
+		
+    const draggable = document.getElementById('draggable');
+    let offsetX, offsetY;
+    let isDragging = false;
+
+    draggable.addEventListener('mousedown', function(e) {
+        isDragging = true;
+        offsetX = e.clientX - draggable.offsetLeft;
+        offsetY = e.clientY - draggable.offsetTop;
+        draggable.style.cursor = 'grabbing';
+    });
+
+    document.addEventListener('mousemove', function(e) {
+        if (isDragging) {
+            draggable.style.left = (e.clientX - offsetX) + 'px';
+            draggable.style.top = (e.clientY - offsetY) + 'px';
+        }
+    });
+
+    document.addEventListener('mouseup', function() {
+        if (isDragging) {
+            isDragging = false;
+            draggable.style.cursor = 'grab';
+        }
+    });
 
   </script>
 </body>

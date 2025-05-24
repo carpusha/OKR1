@@ -5,7 +5,12 @@
     <meta name="author" content="Большаков Кирило">
     <link rel="stylesheet" href="style.css">
     <title>Відеокарти</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
+    <style>
+        td {
+            transition: all 0.3s ease;
+        }
+    </style>
 </head>
 <body>
 
@@ -50,10 +55,7 @@
     <hr>
     <h3>Обробка подій миші</h3>
 
-    <!-- 🟩 Обробник через атрибут -->
     <button ondblclick="handleFromAttribute()">Подвійний клік — показати інтегровану GPU</button>
-
-    <!-- 🟦 Обробник через властивість -->
     <button id="propertyButton">Подвійний клік — показати дискретну GPU</button>
 
     <script>
@@ -63,19 +65,36 @@
             paragraph.style.color = 'green'; 
         });
 
-        // 🟩 Функція для інтегрованої GPU (через атрибут)
+        // Обробка подій для кнопок
         function handleFromAttribute() {
-    alert("Інтегрована відеокарта використовується в бюджетних системах.");
-}
+            alert("Інтегрована відеокарта використовується в бюджетних системах.");
+        }
 
-// 🟦 Функція для дискретної GPU (через властивість)
-document.getElementById("propertyButton").ondblclick = function() {
-    alert("Дискретна відеокарта забезпечує високу графічну продуктивність.");
-};
+        document.getElementById("propertyButton").ondblclick = function() {
+            alert("Дискретна відеокарта забезпечує високу графічну продуктивність.");
+        };
+
+        // Реакція на наведення курсора на клітинки таблиці
+        const tableCells = document.querySelectorAll('td');
+
+        tableCells.forEach(function(cell) {
+            cell.addEventListener('mouseover', function(event) {
+                event.target.style.backgroundColor = '#d0f0c0';
+                event.target.style.transform = 'scale(1.05)';
+                console.log("mouseover: target =", event.target, "relatedTarget =", event.relatedTarget);
+            });
+
+            cell.addEventListener('mouseout', function(event) {
+                event.target.style.backgroundColor = '';
+                event.target.style.transform = '';
+                console.log("mouseout: target =", event.target, "relatedTarget =", event.relatedTarget);
+            });
+        });
     </script>
 
 </body>
 </html>
+
 
 
 
